@@ -1,0 +1,146 @@
+<div class="login-container">
+  <div class="desktop-layout">
+    <div class="login-image">
+      <img src="https://www.exitlag.com/blog/wp-content/uploads/2024/10/Fortnite-Pictures-The-Ultimate-Visual-Collection-For-Every-Fan-1.webp" alt="Fortnite Game">
+    </div>
+
+    <div class="login-content">
+      <div class="logo-section">
+        <h1 class="logo-text">
+          <span class="logo-pixel">PIXEL</span><span class="logo-port">PORT</span>
+        </h1>
+      </div>
+
+      <h2 class="login-title">¿Listo para comenzar?</h2>
+
+      <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="login-form">
+        <div class="input-group">
+          <input 
+            type="email" 
+            placeholder="Your Email/Id" 
+            formControlName="email"
+            class="form-input"
+            [class.input-error]="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+        </div>
+
+        <div class="input-group">
+          <input 
+            type="password" 
+            placeholder="Your Password" 
+            formControlName="password"
+            class="form-input"
+            [class.input-error]="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+        </div>
+
+        <div class="forgot-password">
+          <a href="#" (click)="forgotPassword()" class="forgot-link">Forgot Password ?</a>
+        </div>
+
+        <button 
+          type="submit" 
+          class="login-btn"
+          [disabled]="loginForm.invalid || isLoading"
+          [class.loading]="isLoading">
+          <span *ngIf="!isLoading">Login</span>
+          <span *ngIf="isLoading">Cargando...</span>
+        </button>
+      </form>
+
+      <div class="divider">
+        <span class="divider-text">Or continue with</span>
+      </div>
+
+      <div class="social-buttons">
+        <button type="button" class="social-btn" (click)="onSocialLogin('google')">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google">
+        </button>
+        <button type="button" class="social-btn" (click)="onSocialLogin('apple')">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple">
+        </button>
+        <button type="button" class="social-btn" (click)="onSocialLogin('twitter')">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Logo_of_Twitter.svg" alt="Twitter">
+        </button>
+      </div>
+
+      <div class="register-section">
+        <span class="register-text">Don't have an account? </span>
+        <a href="#" (click)="navigateToRegister()" class="register-link">Register</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="mobile-layout">
+    <div class="mobile-background"></div>
+    <div class="mobile-content">
+      <div class="status-bar">
+        <span class="time">9:41</span>
+        <div class="signal-indicators">
+          <i class="pi pi-signal"></i>
+          <i class="pi pi-wifi"></i>
+          <i class="pi pi-battery"></i>
+        </div>
+      </div>
+      <div class="logo-section">
+        <h1 class="logo-text">
+          <span class="logo-pixel">PIXEL</span><span class="logo-port">PORT</span>
+        </h1>
+      </div>
+
+      <h2 class="login-title">¿Listo para comenzar?</h2>
+      
+      <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="login-form">
+        <div class="input-group">
+          <input 
+            type="email" 
+            placeholder="Your Email/Id" 
+            formControlName="email"
+            class="form-input"
+            [class.input-error]="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+        </div>
+
+        <div class="input-group">
+          <input 
+            type="password" 
+            placeholder="Your Password" 
+            formControlName="password"
+            class="form-input"
+            [class.input-error]="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+        </div>
+        
+        <div class="forgot-password">
+          <a href="#" (click)="forgotPassword()" class="forgot-link">Forgot Password ?</a>
+        </div>
+
+        <button 
+          type="submit" 
+          class="login-btn"
+          [disabled]="loginForm.invalid || isLoading"
+          [class.loading]="isLoading">
+          <span *ngIf="!isLoading">Login</span>
+          <span *ngIf="isLoading">Cargando...</span>
+        </button>
+      </form>
+
+      <div class="divider">
+        <span class="divider-text">Or continue with</span>
+      </div>
+
+      <div class="social-buttons">
+        <button type="button" class="social-btn" (click)="onSocialLogin('google')">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google">
+        </button>
+        <button type="button" class="social-btn" (click)="onSocialLogin('apple')">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple">
+        </button>
+        <button type="button" class="social-btn" (click)="onSocialLogin('twitter')">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Logo_of_Twitter.svg" alt="Twitter">
+        </button>
+      </div>
+
+      <div class="register-section">
+        <span class="register-text">Don't have an account? </span>
+        <a href="#" (click)="navigateToRegister()" class="register-link">Register</a>
+      </div>
+    </div>
+  </div>
+</div>
