@@ -1,63 +1,81 @@
-<<<<<<< HEAD
-# App
+# AppGame
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.17.
+## Requisitos
+- Node.js v20.19.5
+- npm v10.8.2
+- Angular CLI v19.2.17
 
-## Development server
-
-To start a local development server, run:
-
-```bash
-ng serve
+## Versiones de Angular y dependencias
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+     _                      _                 ____ _     ___
+    / \   _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|
+   / △ \ | '_ \ / _` | | | | |/ _` | '__|   | |   | |    | |
+  / ___ \| | | | (_| | |_| | | (_| | |      | |___| |___ | |
+ /_/   \_\_| |_|\__, |\__,_|_|\__,_|_|       \____|_____|___|
+                |___/
+    
 
-## Code scaffolding
+Angular CLI: 19.2.17
+Node: 20.19.5
+Package Manager: npm 10.8.2
+OS: linux x64
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Angular: 19.2.15
+... common, compiler, compiler-cli, core, forms
+... platform-browser, platform-browser-dynamic, router
 
-```bash
-ng generate component component-name
+Package                         Version
+---------------------------------------------------------
+@angular-devkit/architect       0.1902.17
+@angular-devkit/build-angular   19.2.17
+@angular-devkit/core            19.2.17
+@angular-devkit/schematics      19.2.17
+@angular/cli                    19.2.17
+@schematics/angular             19.2.17
+rxjs                            7.8.2
+typescript                      5.7.3
+zone.js                         0.15.1
+    
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Dependencias del proyecto (package.json)
+```
+app@0.0.0 /home/david/proyecto/app
+├── @angular-devkit/build-angular@19.2.17
+├── @angular/cli@19.2.17
+├── @angular/common@19.2.15
+├── @angular/compiler-cli@19.2.15
+├── @angular/compiler@19.2.15
+├── @angular/core@19.2.15
+├── @angular/forms@19.2.15
+├── @angular/platform-browser-dynamic@19.2.15
+├── @angular/platform-browser@19.2.15
+├── @angular/router@19.2.15
+├── @primeng/themes@19.1.2
+├── @types/jasmine@5.1.9
+├── jasmine-core@5.6.0
+├── karma-chrome-launcher@3.2.0
+├── karma-coverage@2.2.1
+├── karma-jasmine-html-reporter@2.1.0
+├── karma-jasmine@5.1.0
+├── karma@6.4.4
+├── primeflex@4.0.0
+├── primeicons@7.0.0
+├── primeng@19.1.4
+├── rxjs@7.8.2
+├── tslib@2.8.1
+├── typescript@5.7.3
+└── zone.js@0.15.1
 
-```bash
-ng generate --help
 ```
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
-=======
-# appgame
->>>>>>> 3fc32bb6fcfa1ba64ba0f31953f8b7f623bfeca5
+## Instalación
+1. Clonar el repositorio:
+   git clone https://github.com/DaveeTov/appgame.git
+   cd appgame
+2. Instalar dependencias:
+   npm install
+3. Ejecutar la aplicación:
+   ng serve
+   La app se levanta en http://localhost:4200
