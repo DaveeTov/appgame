@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';  // <-- importar Router
+import { Router } from '@angular/router';
+
+// PrimeNG imports
 import { DropdownModule } from 'primeng/dropdown';
 import { AvatarModule } from 'primeng/avatar';
 import { CarouselModule } from 'primeng/carousel';
@@ -33,16 +35,21 @@ export class HomeLoginComponent implements OnInit {
   juegos: any[] = [];
   selectedSort: string = 'Relevancia';
   selectedCategories: string[] = [];
-  sortOptions: any[] = [{label: 'Relevancia', value: 'Relevancia'}, {label: 'Precio', value: 'Precio'}];
+  sortOptions: any[] = [
+    {label: 'Relevancia', value: 'Relevancia'}, 
+    {label: 'Precio', value: 'Precio'}
+  ];
 
-  constructor(private router: Router) {} // <-- inyectar Router
+  constructor(private router: Router) {}
 
   ngOnInit() {
     this.categorias = [
+      { label: 'Todos', value: 'todos' },
       { label: 'Acción', value: 'accion' },
       { label: 'Aventura', value: 'aventura' },
       { label: 'Deportes', value: 'deportes' },
-      { label: 'Estrategia', value: 'estrategia' }
+      { label: 'Estrategia', value: 'estrategia' },
+      { label: 'Multijugador', value: 'multiplayer' }
     ];
 
     this.juegos = [
@@ -53,7 +60,40 @@ export class HomeLoginComponent implements OnInit {
     ];
   }
 
-  navigateToLogin() {  // <-- función para navegar
+  // Navegación general al explorador de juegos
+  navigateToGamesExplorer() {
+    this.router.navigate(['/games-explorer']);
+  }
+
+  // Navegación específica cuando seleccionan categoría desde dropdown
+  onCategoryChange() {
+    console.log('Categoría seleccionada:', this.categoriaSeleccionada);
+    
+    if (this.categoriaSeleccionada && this.categoriaSeleccionada.value === 'multiplayer') {
+      this.navigateToGamesExplorer();
+    } else if (this.categoriaSeleccionada) {
+      // Navegar al explorador con filtro específico
+      this.router.navigate(['/games-explorer'], { 
+        queryParams: { category: this.categoriaSeleccionada.value } 
+      });
+    }
+  }
+
+  // Click específico en el checkbox/label de Multijugador
+  onMultiplayerClick() {
+    this.navigateToGamesExplorer();
+  }
+
+  // Otros métodos para filtros
+  onFilterChange() {
+    console.log('Filtros seleccionados:', this.selectedCategories);
+    
+    if (this.selectedCategories.includes('multiplayer')) {
+      this.navigateToGamesExplorer();
+    }
+  }
+
+  navigateToLogin() {
     this.router.navigate(['/login']);
   }
 }

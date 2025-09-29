@@ -1,4 +1,3 @@
-<!-- Mobile Header -->
 <div class="mobile-header">
     <div class="status-bar">
         <span class="time">9:41</span>
@@ -9,39 +8,75 @@
         </div>
     </div>
     <div class="header-controls">
-        <p-dropdown [options]="categorias" [(ngModel)]="categoriaSeleccionada" placeholder="Categoría" styleClass="categoria-dropdown" (onChange)="onCategoryChange()"></p-dropdown>
+        <button class="back-button" (click)="navigateBack()">
+            <i class="pi pi-arrow-left"></i>
+        </button>
         <div class="session-control">
-            <span class="session-text">DAVEEE09373</span>
-            <p-avatar icon="pi pi-user" styleClass="ml-2 avatar-logged"></p-avatar>
+            <span class="session-text">Iniciar sesión</span>
+            <p-avatar icon="pi pi-user" styleClass="ml-2 avatar-default"></p-avatar>
         </div>
     </div>
 </div>
 
 <!-- Vista móvil -->
 <div class="mobile-view">
-    <div class="hero-section">
-        <img [src]="'https://xboxwire.thesourcemediaassets.com/sites/4/GoWR_TitledHeroArt_1920x1080-c550dd331ab65e497719-1-86859e4b4d1ea1620ace.jpg'" alt="Hero Game" class="hero-image">
-    </div>
-    
+    <!-- Sección Mas Vendidos -->
     <div class="games-section">
         <div class="section-header">
-            <h2 class="section-title">EXPLORA TODOS LOS JUEGOS</h2>
-            <i class="pi pi-chevron-right" (click)="navigateToGamesExplorer()"></i>
+            <h2 class="section-title">Mas Vendidos</h2>
         </div>
         
         <div class="mobile-games-grid">
-            <div class="mobile-game-card" *ngFor="let juego of juegos | slice:0:4">
-                <img [src]="juego.image" [alt]="juego.name" class="game-image">
+            <div class="mobile-game-card" *ngFor="let juego of masVendidos">
+                <div class="game-category-tag">{{juego.category}}</div>
+                <img [src]="juego.image" [alt]="juego.name" class="game-image" (click)="onGameClick(juego)">
+                <div class="game-info">
+                    <h3 class="game-title">{{juego.name}}</h3>
+                    <span class="game-price">{{juego.price}}</span>
+                </div>
             </div>
         </div>
+    </div>
+
+    <!-- Sección Mas Buscados -->
+    <div class="games-section">
+        <div class="section-header">
+            <h2 class="section-title">Mas Buscados</h2>
+        </div>
         
-        <p-carousel [value]="juegos" [numVisible]="4" [numScroll]="1" [circular]="false" [showIndicators]="false" [showNavigators]="true" styleClass="games-carousel">
-            <ng-template pTemplate="item" let-juego>
-                <div class="game-card">
-                    <img [src]="juego.image" [alt]="juego.name" class="game-image">
+        <div class="mobile-games-grid">
+            <div class="mobile-game-card" *ngFor="let juego of masBuscados">
+                <div class="game-category-tag">{{juego.category}}</div>
+                <img [src]="juego.image" [alt]="juego.name" class="game-image" (click)="onGameClick(juego)">
+                <div class="game-info">
+                    <h3 class="game-title">{{juego.name}}</h3>
+                    <span class="game-price">{{juego.price}}</span>
                 </div>
-            </ng-template>
-        </p-carousel>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección Gratis+ -->
+    <div class="games-section">
+        <div class="section-header">
+            <h2 class="section-title">Gratis+</h2>
+        </div>
+        
+        <div class="mobile-games-grid">
+            <div class="mobile-game-card" *ngFor="let juego of gratisPlus">
+                <div class="game-category-tag">{{juego.category}}</div>
+                <img [src]="juego.image" [alt]="juego.name" class="game-image" (click)="onGameClick(juego)">
+                <div class="game-info">
+                    <h3 class="game-title">{{juego.name}}</h3>
+                    <span class="game-price">{{juego.price}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Indicador de navegación inferior -->
+    <div class="bottom-indicator">
+        <i class="pi pi-chevron-up"></i>
     </div>
 </div>
 
@@ -52,7 +87,7 @@
             <input type="text" placeholder="Buscar">
         </div>
         <div class="login-section">
-            <span class="login-text">DAVEEE09373</span>
+            <span class="login-text">DAVEEEE05000</span>
             <div class="user-icon">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z"/>
@@ -62,14 +97,14 @@
         </div>
     </div>
 
-   <div class="main-content">
+    <div class="main-content">
         <div class="filters-sidebar">
             <div class="filter-section">
                 <h3 class="filter-title">Categoría</h3>
                 <div class="checkbox-group">
                     <div class="checkbox-item">
-                        <p-checkbox name="categories" value="multiplayer" [(ngModel)]="selectedCategories" inputId="multiplayer" (onChange)="onFilterChange()"></p-checkbox>
-                        <label for="multiplayer" class="checkbox-label" (click)="onMultiplayerClick()">Multijugador</label>
+                        <p-checkbox name="categories" value="multiplayer" [(ngModel)]="selectedCategories" inputId="multiplayer"></p-checkbox>
+                        <label for="multiplayer" class="checkbox-label">Multijugador</label>
                     </div>
                     <div class="checkbox-item">
                         <p-checkbox name="categories" value="adventure" [(ngModel)]="selectedCategories" inputId="adventure"></p-checkbox>
@@ -135,22 +170,55 @@
         </div>
 
         <div class="main-view">
-            <div class="hero-section">
-                <img [src]="'https://xboxwire.thesourcemediaassets.com/sites/4/GoWR_TitledHeroArt_1920x1080-c550dd331ab65e497719-1-86859e4b4d1ea1620ace.jpg'" alt="Hero Game" class="hero-image">
-            </div>
-
+            <!-- Sección Mas Vendidos Desktop -->
             <div class="games-section">
                 <div class="section-header">
-                    <h2 class="section-title">EXPLORA TODOS LOS JUEGOS</h2>
-                    <i class="pi pi-chevron-right" (click)="navigateToGamesExplorer()"></i>
+                    <h2 class="section-title">Mas Vendidos</h2>
                 </div>
-                <p-carousel [value]="juegos" [numVisible]="4" [numScroll]="1" [circular]="false" [showIndicators]="true" [showNavigators]="true" styleClass="games-carousel">
-                    <ng-template pTemplate="item" let-juego>
-                        <div class="game-card">
-                            <img [src]="juego.image" [alt]="juego.name" class="game-image">
+                <div class="desktop-games-grid">
+                    <div class="desktop-game-card" *ngFor="let juego of masVendidos">
+                        <div class="game-category-tag">{{juego.category}}</div>
+                        <img [src]="juego.image" [alt]="juego.name" class="game-image" (click)="onGameClick(juego)">
+                        <div class="game-info">
+                            <h3 class="game-title">{{juego.name}}</h3>
+                            <span class="game-price">{{juego.price}}</span>
                         </div>
-                    </ng-template>
-                </p-carousel>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección Mas Buscados Desktop -->
+            <div class="games-section">
+                <div class="section-header">
+                    <h2 class="section-title">Mas Buscados</h2>
+                </div>
+                <div class="desktop-games-grid">
+                    <div class="desktop-game-card" *ngFor="let juego of masBuscados">
+                        <div class="game-category-tag">{{juego.category}}</div>
+                        <img [src]="juego.image" [alt]="juego.name" class="game-image" (click)="onGameClick(juego)">
+                        <div class="game-info">
+                            <h3 class="game-title">{{juego.name}}</h3>
+                            <span class="game-price">{{juego.price}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección Gratis+ Desktop -->
+            <div class="games-section">
+                <div class="section-header">
+                    <h2 class="section-title">Gratis+</h2>
+                </div>
+                <div class="desktop-games-grid">
+                    <div class="desktop-game-card" *ngFor="let juego of gratisPlus">
+                        <div class="game-category-tag">{{juego.category}}</div>
+                        <img [src]="juego.image" [alt]="juego.name" class="game-image" (click)="onGameClick(juego)">
+                        <div class="game-info">
+                            <h3 class="game-title">{{juego.name}}</h3>
+                            <span class="game-price">{{juego.price}}</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

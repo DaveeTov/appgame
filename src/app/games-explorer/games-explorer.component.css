@@ -1,0 +1,685 @@
+/* Container principal - Responsive */
+:host {
+  display: block;
+  background: #f5f5f5;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* ESTILOS DESKTOP */
+@media (min-width: 769px) {
+  :host {
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .mobile-header {
+    display: none !important;
+  }
+
+  .mobile-view {
+    display: none !important;
+  }
+
+  .desktop-container {
+    display: block !important;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .desktop-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  .search-bar-container {
+    flex: 1;
+    max-width: 600px;
+    margin-right: 20px;
+  }
+
+  .search-bar-container input {
+    width: 100%;
+    padding: 12px 20px;
+    border: 2px solid #e9ecef;
+    border-radius: 25px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+
+  .search-bar-container input:focus {
+    border-color: #007bff;
+  }
+
+  .login-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #ff6b35;
+    border: 1px solid #ff6b35;
+    border-radius: 25px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .login-section:hover {
+    background-color: #e55a2e;
+  }
+
+  .login-text {
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .user-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+
+  .user-icon svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .main-content {
+    display: flex;
+    gap: 24px;
+  }
+
+  .filters-sidebar {
+    width: 280px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 0;
+    height: fit-content;
+    border: 1px solid #e9ecef;
+  }
+
+  .filter-section {
+    padding: 20px;
+    border-bottom: 1px solid #e9ecef;
+  }
+
+  .filter-section:last-child {
+    border-bottom: none;
+  }
+
+  .filter-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 15px 0;
+  }
+
+  .checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .checkbox-label {
+    font-size: 13px;
+    color: #555;
+    font-weight: 400;
+    cursor: pointer;
+  }
+
+  .filters-list {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: white;
+  }
+
+  .filter-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    border-bottom: 1px solid #e9ecef;
+    cursor: pointer;
+    background: white;
+  }
+
+  .filter-item:last-child {
+    border-bottom: none;
+  }
+
+  .filter-item:hover {
+    background: #f8f9fa;
+  }
+
+  .filter-arrow {
+    font-size: 12px;
+    color: #666;
+    margin-right: 8px;
+    width: 12px;
+    text-align: center;
+    transform: rotate(180deg);
+  }
+
+  .filter-name {
+    font-size: 13px;
+    color: #333;
+    font-weight: 400;
+  }
+
+  .main-view {
+    flex: 1;
+  }
+
+  .games-section {
+    background: white;
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  .section-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+
+  .section-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #333;
+    margin: 0;
+    letter-spacing: 0.5px;
+  }
+
+  .desktop-games-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    padding: 0;
+  }
+
+  .desktop-game-card {
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .desktop-game-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .desktop-game-card .game-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+  }
+
+  .desktop-game-card .game-category-tag {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background: rgba(0,0,0,0.8);
+    color: white;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+    z-index: 2;
+  }
+
+  .desktop-game-card .game-info {
+    padding: 12px 4px;
+    text-align: left;
+  }
+
+  .desktop-game-card .game-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 4px 0;
+    line-height: 1.3;
+  }
+
+  .desktop-game-card .game-price {
+    font-size: 12px;
+    color: #28a745;
+    font-weight: 600;
+  }
+}
+
+/* ESTILOS MÓVIL */
+@media (max-width: 768px) {
+  :host {
+    max-width: 375px;
+    margin: 0 auto;
+  }
+
+  .desktop-container {
+    display: none !important;
+  }
+
+  .mobile-header {
+    display: block !important;
+    background: white;
+    padding: 8px 16px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .mobile-view {
+    display: block;
+    padding-bottom: 80px; /* Espacio para el indicador inferior */
+  }
+
+  .status-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .time {
+    color: #000;
+  }
+
+  .signal-indicators {
+    display: flex;
+    gap: 4px;
+  }
+
+  .signal-indicators i {
+    font-size: 12px;
+    color: #000;
+  }
+
+  .header-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+  }
+
+  .back-button {
+    background: none;
+    border: none;
+    color: #007bff;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .session-control {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #666;
+  }
+
+  .session-text {
+    margin-right: 8px;
+  }
+
+  /* Games section móvil */
+  .games-section {
+    background: white;
+    margin: 16px;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  .section-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .section-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+    margin: 0;
+    letter-spacing: 0.5px;
+  }
+
+  .mobile-games-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding: 0;
+  }
+
+  .mobile-game-card {
+    position: relative;
+    cursor: pointer;
+  }
+
+  .mobile-game-card .game-image {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+
+  .mobile-game-card .game-category-tag {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    background: rgba(0,0,0,0.8);
+    color: white;
+    font-size: 8px;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 3px;
+    letter-spacing: 0.3px;
+    z-index: 2;
+  }
+
+  .mobile-game-card .game-info {
+    padding: 8px 0;
+    text-align: center;
+  }
+
+  .mobile-game-card .game-title {
+    font-size: 11px;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 4px 0;
+    line-height: 1.2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .mobile-game-card .game-price {
+    font-size: 10px;
+    color: #28a745;
+    font-weight: 600;
+  }
+
+  .bottom-indicator {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.1);
+    border-radius: 20px;
+    padding: 8px 12px;
+    color: #666;
+  }
+
+  .bottom-indicator i {
+    font-size: 16px;
+  }
+}
+
+/* Estilos globales para componentes PrimeNG */
+::ng-deep .p-avatar {
+  background-color: #e9ecef;
+  color: #666;
+  width: 32px;
+  height: 32px;
+  font-size: 14px;
+}
+
+::ng-deep .avatar-default {
+  background-color: #ddd;
+  color: #666;
+}
+
+::ng-deep .categoria-dropdown {
+  border: none;
+  background: transparent;
+}
+
+::ng-deep .categoria-dropdown .p-dropdown-label {
+  font-weight: 500;
+  color: #333;
+  font-size: 14px;
+}
+
+::ng-deep .sort-dropdown {
+  width: 100%;
+}
+
+::ng-deep .sort-dropdown .p-dropdown {
+  width: 100%;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+}
+
+/* Checkbox estilos */
+::ng-deep .p-checkbox {
+  margin-bottom: 0;
+}
+
+::ng-deep .p-checkbox .p-checkbox-box {
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  width: 18px;
+  height: 18px;
+}
+
+::ng-deep .p-checkbox .p-checkbox-box:hover {
+  border-color: #007bff;
+}
+
+::ng-deep .p-checkbox .p-checkbox-box.p-highlight {
+  background: #007bff;
+  border-color: #007bff;
+}
+
+::ng-deep .p-checkbox-label {
+  margin-left: 10px;
+  color: #333;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+/* Botones */
+::ng-deep .p-button {
+  background-color: #007bff;
+  border-color: #007bff;
+  padding: 8px 16px;
+  border-radius: 20px;
+}
+
+::ng-deep .p-button:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+/* Asegurar que los iconos se vean */
+.pi {
+  font-family: 'primeicons' !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Transiciones suaves */
+.mobile-game-card,
+.desktop-game-card {
+  transition: all 0.3s ease;
+}
+
+.mobile-game-card:hover .game-image,
+.desktop-game-card:hover .game-image {
+  transform: scale(1.02);
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .mobile-games-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .mobile-game-card .game-image {
+    height: 140px;
+  }
+
+  .mobile-game-card .game-title {
+    font-size: 12px;
+  }
+
+  .mobile-game-card .game-price {
+    font-size: 11px;
+  }
+}
+
+/* Estados de carga y hover */
+.game-image {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.game-image[src] {
+  background: none;
+  animation: none;
+}
+
+/* Efectos adicionales para mejorar la UX */
+.back-button:hover {
+  color: #0056b3;
+  transform: scale(1.1);
+}
+
+.back-button:active {
+  transform: scale(0.95);
+}
+
+/* Scrollbar personalizado para móvil */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Animaciones de entrada */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.games-section {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.mobile-game-card,
+.desktop-game-card {
+  animation: fadeIn 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+.mobile-game-card:nth-child(1) { animation-delay: 0.1s; }
+.mobile-game-card:nth-child(2) { animation-delay: 0.2s; }
+.mobile-game-card:nth-child(3) { animation-delay: 0.3s; }
+.mobile-game-card:nth-child(4) { animation-delay: 0.4s; }
+.mobile-game-card:nth-child(5) { animation-delay: 0.5s; }
+.mobile-game-card:nth-child(6) { animation-delay: 0.6s; }
+
+/* Focus states para accesibilidad */
+.back-button:focus,
+.game-image:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+/* Estados activos */
+.mobile-game-card:active,
+.desktop-game-card:active {
+  transform: scale(0.98);
+}
+
+/* Mejoras visuales para los tags de categoría */
+.game-category-tag {
+  text-transform: uppercase;
+  font-family: 'Arial', sans-serif;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Indicador de carga para imágenes */
+.game-image:not([src]) {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+/* Media query adicional para tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+  .mobile-games-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .mobile-game-card .game-image {
+    height: 130px;
+  }
+
+  .mobile-game-card .game-title {
+    font-size: 12px;
+  }
+
+  .section-title {
+    font-size: 20px;
+  }
+}
